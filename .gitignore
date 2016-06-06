@@ -1,0 +1,21 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+/target
+res-*.zip
+/build
+workbench.xmi
+
+# hidden files
+.*
+
+# gradle
+.gradle
+build
+.idea
+*.iml
+*.ipr
+
+/stoplists
+/storage
