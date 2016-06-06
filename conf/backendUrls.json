@@ -2,16 +2,19 @@
   [
     "http://webqa:4000",
     "http://yoda_offline:4567",
-    "http://keyphraserake:4124"
+    "http://keyphraserake:4124",
+    "http://bluemixservices:9093"
   ],
   [
     "http://127.0.0.1:4000",
     "http://127.0.0.1:4567",
-    "http://127.0.0.1:4124"
+    "http://127.0.0.1:4124",
+    "http://127.0.0.1:9093"
   ],
   [
     "http://sth.somecompany.com:4000",
     "http://sth.somecompany.com:4567",
-    "http://sth.somecompany.com:4124"
+    "http://sth.somecompany.com:4124",
+    "http://sth.somecompany.com:9093"
   ]
 ]
