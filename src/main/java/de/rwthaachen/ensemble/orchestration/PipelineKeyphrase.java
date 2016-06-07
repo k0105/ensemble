@@ -1,5 +1,6 @@
 package de.rwthaachen.ensemble.orchestration;
 
+import com.google.gson.Gson;
 import de.rwthaachen.ensemble.backend.KeyphraseRake;
 import de.rwthaachen.ensemble.dispatch.Dispatcher;
 import de.rwthaachen.ensemble.dispatch.Ensemble;
@@ -10,6 +11,7 @@ import de.rwthaachen.ensemble.postprocessing.Filter;
 import de.rwthaachen.ensemble.postprocessing.ListMerger;
 import de.rwthaachen.ensemble.postprocessing.Ranker;
 
+import java.io.FileWriter;
 import java.util.*;
 
 /**
@@ -31,6 +33,9 @@ public class PipelineKeyphrase extends Pipeline {
         List<AnswerCandidate> answers = listMerger.mergeResultLists(listOfAnswerLists);
         System.out.println("Merging question");
         String result = listMerger.mergeListToString(answers);
+
+        // Export list answers to JSON (debug)
+        //System.out.println(new Gson().toJson(answers));
 
         System.out.println(result);
         return result;

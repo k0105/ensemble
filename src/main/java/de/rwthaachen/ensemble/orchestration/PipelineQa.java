@@ -68,6 +68,7 @@ public class PipelineQa extends Pipeline {
         answer = map.get("Kngine");
         if (answer != null && !answer.equals("")) {
             answerSet.add(answer);
+            // Only set result if it hasn't been filled, yet
             if (result == null) {
                 result = answer;
             }
@@ -87,6 +88,13 @@ public class PipelineQa extends Pipeline {
             }
         }
         answer = map.get("Start");
+        if (answer != null && !answer.equals("")) {
+            answerSet.add(answer);
+            if (result == null) {
+                result = answer;
+            }
+        }
+        answer = map.get("Bing");
         if (answer != null && !answer.equals("")) {
             answerSet.add(answer);
             if (result == null) {

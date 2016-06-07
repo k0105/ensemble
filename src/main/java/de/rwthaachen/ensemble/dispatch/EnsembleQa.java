@@ -15,7 +15,7 @@ public class EnsembleQa extends Ensemble {
 
     public void init() {
         ensembleMembers.add(new YodaQaSystem("Yoda"));
-
+        ensembleMembers.add(new WebQaSystem("Bing",1.05d));
         ensembleMembers.add(new WebQaSystem("Evi",    1.1d));
         ensembleMembers.add(new WebQaSystem("Google", 1.2d));
         ensembleMembers.add(new WebQaSystem("Kngine", 1.3d));
