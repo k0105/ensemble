@@ -19,28 +19,29 @@ public class ThriftHandler {
     }
 
     public static class SyncThriftHandler extends Handler implements LucidaService.Iface {
-    Controller controller;
-    public SyncThriftHandler(Controller controller) {
-        this.controller = controller;
-    }
-
-    @Override
-    public void create(String LUCID, QuerySpec spec) throws TException {
-        print("Create");
-    }
-
-    @Override
-    public void learn(String LUCID, QuerySpec knowledge) throws TException {
-        print("learn");
-    }
-
-    @Override
-    public String infer(String LUCID, QuerySpec query) throws TException {
-        if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
-            throw new IllegalArgumentException();
+        Controller controller;
+        public SyncThriftHandler(Controller controller) {
+            this.controller = controller;
         }
-        System.out.println("Received question: " + query.content.get(0).data.get(0));
-        return controller.getQaPipe().ask(query.content.get(0).data.get(0));
+
+        @Override
+        public void create(String LUCID, QuerySpec spec) throws TException {
+            print("Create");
+        }
+
+        @Override
+        public void learn(String LUCID, QuerySpec knowledge) throws TException {
+            print("learn");
+        }
+
+        @Override
+        public String infer(String LUCID, QuerySpec query) throws TException {
+            if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+            System.out.println("Received question: " + query.content.get(0).data.get(0));
+            return controller.getQaPipe().ask(query.content.get(0).data.get(0));
+        }
     }
 
     public static class AsyncThriftHandler implements LucidaService.AsyncIface {
