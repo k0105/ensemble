@@ -5,6 +5,11 @@ Ensemble Service
 This ensemble provides a way to query multiple QA systems and merge their results. There are two Gradle tasks to
 either launch a RESTful interface (./gradlew runRestBackend) or one based on Apache Thrift (./gradlew runThriftBackend).
 
+## To build
+- Extract dependencies into a folder `lib` (javax.persistence.jar jaws-bin.jar minimal-json-0.9.4.jar and simmetrics_jar_v1_6_2_d07_02_07.jar and folder thrift containing Thrift 0.9.3)
+- Recreate the gradlew configuration with `gradle wrapper`
+- To run the code just execute the task runRestBackend or runThriftBackend with the local addresses (default assumes Docker links), e.g. `./gradlewsemble.webqaurl="http://127.0.0.1:4000" -Dde.rwthaachen.ensemble.webqaurl="http://127.0.0.1:4567" -Dde.rwthaachen.ensemble.rakeurl="http://127.0.0.1:4124" -Dde.rwthaachen.ensemble.bluemixurl="http://127.0.0.1:9093"`
+
 ### ASLv2
     Ensemble Service
     Copyright 2016 RWTH Aachen
