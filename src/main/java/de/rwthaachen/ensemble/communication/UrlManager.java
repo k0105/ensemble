@@ -21,7 +21,7 @@ public class UrlManager {
     }
 
     public enum Backends {
-        WEBQA, YODAQA, RAKE, WATSON, OAQA, OPENEPHYRA, QANTA, OPENQA, QANUS
+        WEBQA, YODAQA, RAKE, BLUEMIX, WATSON, OAQA, OPENEPHYRA, QANTA, OPENQA, QANUS
     }
 
     private static String[][] urlLookUpTable;
@@ -65,11 +65,17 @@ public class UrlManager {
         stringBuilder.append(System.getProperty("de.rwthaachen.ensemble.yodaqaurl"));
         stringBuilder.append("\nSystem.getProperty(\"de.rwthaachen.ensemble.rakeurl\") ");
         stringBuilder.append(System.getProperty("de.rwthaachen.ensemble.rakeurl"));
+        stringBuilder.append("\nSystem.getProperty(\"de.rwthaachen.ensemble.bluemixurl\") ");
+        stringBuilder.append(System.getProperty("de.rwthaachen.ensemble.bluemixurl"));
         stringBuilder.append("\n\nURL each backend receives:");
         stringBuilder.append("\nWebQA: ");
         stringBuilder.append(lookUpUrl(Backends.WEBQA.ordinal()));
         stringBuilder.append("\nYodaQA: ");
         stringBuilder.append(lookUpUrl(Backends.YODAQA.ordinal()));
+        stringBuilder.append("\nRAKE: ");
+        stringBuilder.append(lookUpUrl(Backends.RAKE.ordinal()));
+        stringBuilder.append("\nBluemix: ");
+        stringBuilder.append(lookUpUrl(Backends.BLUEMIX.ordinal()));
         return stringBuilder.toString();
     }
 
@@ -163,6 +169,9 @@ public class UrlManager {
             case 2:
                 return System.getProperty("de.rwthaachen.ensemble.rakeurl")!=null?
                         System.getProperty("de.rwthaachen.ensemble.rakeurl"):lookUpUrl(currentBackend, fieldId);
+            case 3:
+                return System.getProperty("de.rwthaachen.ensemble.bluemixurl")!=null?
+                        System.getProperty("de.rwthaachen.ensemble.bluemixurl"):lookUpUrl(currentBackend, fieldId);
             default:
                 return null;
         }
