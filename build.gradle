@@ -103,6 +103,18 @@ dependencies {
 
     compile group: 'cc.mallet',                      name: 'mallet',                         version: '2.0.8'
 
-    compile files('./lib/simmetrics_jar_v1_6_2_d07_02_07.jar')
-    compile files('./lib/jaws-bin.jar')
+    def f = new File('lib/simmetrics_jar_v1_6_2_d07_02_07.jar')
+        if (!f.exists()) {
+            new URL('http://downloads.sourceforge.net/project/simmetrics/simmetrics_jar/simmetrics_v1_6_2/simmetrics_jar_v1_6_2_d07_02_07.jar?format=raw').withInputStream{ i -> f.withOutputStream{ it << i }}
+        }
+    compile name: 'simmetrics_jar_v1_6_2_d07_02_07'
+
+    // compile files('./lib/simmetrics_jar_v1_6_2_d07_02_07.jar')
+    // compile files('./lib/jaws-bin.jar')
+
+    f = new File('lib/jaws-bin.jar')
+        if (!f.exists()) {
+            new URL('http://lyle.smu.edu/%7Etspell/jaws/jaws-bin.jar?format=raw').withInputStream{ i -> f.withOutputStream{ it << i }}
+        }
+    compile name: 'jaws-bin'
 }
